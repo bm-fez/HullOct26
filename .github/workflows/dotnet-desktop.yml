@@ -27,3 +27,14 @@ jobs:
 
     - name: Build
       run: dotnet build ./SampleSolution/sample/sample.csproj
+
+    - name: Test
+      run: dotnet test --verbosity normal --logger trx --results-directory ./TestResults ./SampleSolution/sample.unittests/sampleunittests.csproj
+      
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action/linux@v2 
+      if: always()
+      with:
+        files: "**/*.trx"
+        comment_title: "Unit Test Results"
+
