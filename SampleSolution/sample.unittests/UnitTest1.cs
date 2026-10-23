@@ -15,7 +15,7 @@ namespace Sample.UnitTests
             var actual = sut.SayHelloWorld();
 
             // assert
-            Assert.AreEqual("Hello World!", actual);
+            Assert.AreEqual("Hello Worlssssd!", actual);
         }
     }
 }
